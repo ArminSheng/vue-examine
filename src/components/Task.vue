@@ -3,36 +3,35 @@
     <div class="form-group">
       <div class="col-sm-6">
         <label>日期</label>
-        <input
-          type="date"
-          class="form-control"
-          v-model="date"
-          placeholder="Date"
-        />
+        <div>
+          <el-date-picker
+            type="date"
+            v-model="date"
+            placeholder="Date"
+            format="yyyy-MM-dd"
+          ></el-date-picker>
+        </div>
       </div>
       <div class="col-sm-6">
         <label>时间</label>
-        <input
+        <el-input
           type="number"
-          class="form-control"
           v-model="totalTime"
           placeholder="Hours"
-        />
+        ></el-input>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-12">
         <label>备注</label>
-        <input
-          type="text"
-          class="form-control"
+        <el-input
           v-model="comment"
           placeholder="Comment"
-        />
+        ></el-input>
       </div>
     </div>
-    <button class="btn btn-primary" @click="save()">保存</button>
-    <router-link to="/time-entries" class="btn btn-danger">取消</router-link>
+    <el-button type="primary" @click="save()">保存</el-button>
+    <router-link to="/time-entries"><el-button type="danger">取消</el-button></router-link>
     <hr>
   </div>
 </template>
@@ -51,7 +50,7 @@
       save () {
         const task = {
           name: 'Armin',
-          image: 'https://avatars0.githubusercontent.com/u/10386102?v=3&s=460',
+          avatar: 'https://avatars0.githubusercontent.com/u/10386102?v=3&s=460',
           date: this.date,
           totalTime: this.totalTime,
           comment: this.comment

@@ -18,9 +18,8 @@
       <p v-if="!plans.length"><strong>还没有任何计划</strong></p>
 
       <div class="list-group">
-        <a class="list-group-item" v-for="(plan,index) in plans">
-          <!-- <div class="row"> -->
-            <!-- <div class="col-sm-2 user-details"> -->
+        <!-- <a class="list-group-item" v-for="(plan,index) in plans"> -->
+        <el-card v-for="(plan,index) in plans" class="box-item">
           <el-row>
             <el-col :span="4">
                 <img :src="plan.avatar" class="avatar img-circle img-responsive" />
@@ -30,44 +29,34 @@
                   </strong>
                 </p>
             </el-col>
-            <!-- </div> -->
 
-            <!-- <div class="col-sm-2 text-center time-block"> -->
             <el-col :span="6">
               <div class="text-center time-block">
                 <h3 class="list-group-item-text total-time">
                   <i class="glyphicon glyphicon-time"></i>
-                  {{ plan.totalTime }}
+                  <span style="line-height: 28px;">{{ plan.totalTime }}</span>
                 </h3>
-                <p class="label label-primary text-center">
-                  <i class="glyphicon glyphicon-calendar"></i>
+                <el-tag type="primary" >
+                  <i class="el-icon-date"></i>
                   {{ plan.date }}
-                </p>
+                </el-tag>
               </div>
             </el-col>
-            <!-- </div> -->
 
-            <!-- <div class="col-sm-7 comment-section"> -->
             <el-col :span="12">
               <div class="comment-section">
                 <p>{{ plan.comment }}</p>
               </div>
             </el-col>
-            <!-- </div> -->
 
             <el-col :span="2">
-            <!-- <div class="col-sm-1"> -->
-              <!-- <button
-                class="btn btn-xs btn-danger delete-button"
-                @click="deletePlan(index)">
-              </button> -->
+              </button>
               <i class="el-icon-circle-close delete-button" @click="deletePlan(index)"></i>
             </el-col>
-            <!-- </div> -->
 
             </el-row>
-          <!-- </div> -->
-        </a>
+        <!-- </a> -->
+        </el-card>
 
       </div>
     </div>
@@ -92,9 +81,9 @@
         this.$store.dispatch('deletePlan', idx)
         // Notify
         this.$notify({
-          title: '删除',
-          message: '确认删除？',
-          type: 'warning'
+          title: '已删除',
+          message: '删除任务',
+          type: 'success'
         })
       }
     }
@@ -123,5 +112,8 @@
     font-size: 1.5em;
     color: red;
     cursor: pointer;
+  }
+  .box-item {
+    margin-bottom: 1em;
   }
 </style>

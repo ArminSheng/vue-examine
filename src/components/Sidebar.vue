@@ -1,5 +1,5 @@
 <template>
-  <div class="panel panel-default">
+  <!-- <div class="panel panel-default">
     <div class="panel-heading">
       <h1 class="text-center">已有时长</h1>
     </div>
@@ -8,7 +8,15 @@
       <h1 class="text-center">{{ time }} 小时</h1>
     </div>
 
-  </div>
+  </div> -->
+  <el-card>
+    <div slot="header">
+      已有时长
+    </div>
+    <div>
+      <h2>{{ time }} 小时</h2>
+    </div>
+  </el-card>
 </template>
 
 <script>
