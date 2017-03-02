@@ -1,16 +1,19 @@
 <template>
-  <div class="jumbotron">
+  <el-card>
     <h1>任务追踪</h1>
-    <p>
-      <strong>
-        <router-link to="/time-entries">创建一个任务</router-link>
-      </strong>
-    </p>
-  </div>
+      <router-link to="/time-entries">
+        <el-button type="primary" @click="doSwitchTab()">创建一个任务</el-button>
+      </router-link>
+  </el-card>
 </template>
 
 <script>
     export default {
-      name: 'home'
+      name: 'home',
+      methods: {
+        doSwitchTab () {
+          this.$root.$data.activeIndex = '2'
+        }
+      }
     }
 </script>

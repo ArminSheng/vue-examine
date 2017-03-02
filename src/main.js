@@ -6,7 +6,6 @@ import ElementUI from 'element-ui'
 import App from './App'
 import store from './store'
 import Home from './components/Home'
-import Hello from './components/Hello'
 import TimeEntry from './components/TimeEntry'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -19,7 +18,7 @@ Vue.use(ElementUI)
 const routes = [
   {
     path: '/',
-    component: Hello
+    component: Home
   }, {
     path: '/home',
     component: Home

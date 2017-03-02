@@ -38,7 +38,7 @@
                 </h3>
                 <el-tag type="primary" >
                   <i class="el-icon-date"></i>
-                  {{ plan.date }}
+                  {{ dateFilter(plan.date) }}
                 </el-tag>
               </div>
             </el-col>
@@ -85,6 +85,12 @@
           message: '删除任务',
           type: 'success'
         })
+      },
+      dateFilter (date) {
+        if (date instanceof Date) {
+          date = date.toLocaleDateString().replace(/\//g, '-')
+        }
+        return date
       }
     }
   }
