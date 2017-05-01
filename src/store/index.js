@@ -4,6 +4,12 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
+  photoOptions: {
+    photoToCut: '',
+    ratio: 1,
+    handler: null
+  },
+  previewImg: null,
   totalTime: 3,
   list: [{
     name: 'user',
@@ -35,6 +41,12 @@ export default new Vuex.Store({
     },
     deletePlan (state, idx) {
       state.list.splice(idx, 1)
+    },
+    addImgCrop (state, payload) {
+      state.photoOptions = payload
+    },
+    previewImg (state, payload) {
+      state.previewImg = payload
     }
   },
   actions: {
@@ -49,6 +61,12 @@ export default new Vuex.Store({
     },
     deletePlan ({commit}, idx) {
       commit('deletePlan', idx)
+    },
+    addImgCrop ({commit}, payload) {
+      commit('addImgCrop', payload)
+    },
+    previewImg ({commit}, payload) {
+      commit('previewImg', payload)
     }
   }
 })
